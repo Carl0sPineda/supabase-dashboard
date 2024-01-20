@@ -1,4 +1,5 @@
 import { useState } from "react";
+import toast from "react-hot-toast";
 import supabase from "../lib/Supabase";
 
 const Login = () => {
@@ -14,22 +15,23 @@ const Login = () => {
         password,
       });
       if (error) {
-        console.error("Login error:", error.message);
+        toast.error(
+          "Credenciales incorrectas. Verifica tu email o contraseña."
+        );
       } else {
-        console.log("User logged in:", data.user);
-        alert("Login successful!");
+        toast.success("Inicio de sesión con éxito!");
       }
     } catch (error) {
-      console.error("Login error:", error.message);
+      toast.error("Credenciales incorrectas. Verifica tu email o contraseña.");
     }
   };
 
   return (
     <form onSubmit={handleLogin}>
-      {/* Email and password input fields */}
       <label>
         Correo:{" "}
         <input
+          className="border border-gray-300 rounded-md"
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -38,12 +40,15 @@ const Login = () => {
       <label>
         Contraseña:{" "}
         <input
+          className="border border-gray-300 rounded-md"
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
       </label>
-      <button type="submit">Inicio de sesión</button>
+      <button type="submit" className="bg-black text-white px-5 py-2">
+        Inicia sesión
+      </button>
     </form>
   );
 };
