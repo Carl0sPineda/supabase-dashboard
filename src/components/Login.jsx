@@ -2,10 +2,12 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import supabase from "../lib/Supabase";
 import login_img from "../assets/login-img.avif";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -18,6 +20,7 @@ const Login = () => {
       if (error) {
         toast.error("Credenciales incorrectas!!");
       } else {
+        navigate("/dashboard");
         toast.success("Inicio de sesión con éxito!");
       }
     } catch (error) {
