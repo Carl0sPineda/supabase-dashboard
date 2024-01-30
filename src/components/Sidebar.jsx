@@ -20,7 +20,7 @@ const Sidebar = () => {
       <div className="m-4">
         <ul className="mb-4 flex flex-col gap-1">
           <li>
-            <Link to={"/dashboard/user"}>
+            <Link to={"/dashboard/documentos"}>
               <button
                 className={`middle none font-sans font-bold center transition-all text-xs py-3 rounded-lg ${
                   activeButton === "dashboard"
@@ -46,7 +46,7 @@ const Sidebar = () => {
               </button>
             </Link>
           </li>
-          <li>
+          {/* <li>
             <Link to={"/dashboard/ejemplo"}>
               <button
                 className={`middle none font-sans font-bold center transition-all text-xs py-3 rounded-lg ${
@@ -132,7 +132,7 @@ const Sidebar = () => {
                 </span>
               </button>
             </Link>
-          </li>
+          </li> */}
         </ul>
       </div>
     </aside>

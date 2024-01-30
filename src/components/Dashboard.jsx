@@ -12,9 +12,10 @@ const Dashboard = () => {
       <Sidebar />
       <div className="p-4 xl:ml-80">
         <Routes>
-          <Route path="/user" element={<User />} />
-          <Route path="/ejemplo" element={<Profile />} />
           <Route path="/" element={<HeroPage />} />
+          <Route path="/documentos" element={<User />} />
+          <Route path="/ejemplo" element={<Profile />} />
+          <Route path="*" element={<HeroPage />} />
         </Routes>
         <div className="mt-12 text-blue-gray-600">
           <footer className="py-2">
